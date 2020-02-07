@@ -4,9 +4,19 @@ import { AspectRatioMode, QApplication, QMainWindow, WindowType } from '@nodegui
 import TrayMenu from './trayMenu/TrayMenu';
 import { Dock } from '@nodegui/nodegui-os-utils';
 import appIcon from './trayMenu/appIcon';
-import { QAbstractButtonSignals } from '@nodegui/nodegui/dist/lib/QtWidgets/QAbstractButton';
+import dotenv from 'dotenv';
+import open from 'open';
+import S3Client from './s3';
 
 process.title = 'Snaply';
+
+dotenv.config();
+
+const S3 = new S3Client({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  bucketName: process.env.AWS_BUCKET_NAME,
+});
 
 Dock.hide();
 
@@ -55,12 +65,16 @@ const App = () => {
 
   const uploadButtonHandler = useMemo(
     () => ({
-      clicked: () => {
+      clicked: async () => {
+        if (!imageSrc) return;
+
+        const fileUrl = await S3.uploadFile(imageSrc);
         winRef.current?.hide();
+        await open(fileUrl);
         Dock.hide();
       },
     }),
-    [],
+    [imageSrc],
   );
 
   return (

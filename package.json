@@ -11,16 +11,21 @@
   "license": "ISC",
   "dependencies": {
     "@nodegui/nodegui": "^0.13.3",
-    "@nodegui/react-nodegui": "^0.4.0",
-    "react": "^16.12.0",
     "@nodegui/nodegui-os-utils": "^1.0.0",
-    "tempy": "^0.3.0",
-    "desktop-screenshot": "^0.1.1"
+    "@nodegui/react-nodegui": "^0.4.0",
+    "aws-sdk": "^2.614.0",
+    "desktop-screenshot": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "open": "^7.0.2",
+    "react": "^16.12.0",
+    "tempy": "^0.3.0"
   },
   "devDependencies": {
     "@nodegui/devtools": "^1.0.1",
     "@types/node": "^13.7.0",
     "@types/react": "^16.9.19",
+    "@types/open": "^6.2.1",
+    "@types/dotenv": "^8.2.0",
     "@types/tempy": "^0.3.0",
     "file-loader": "^5.0.2",
     "node-loader": "^0.6.0",
