@@ -2,7 +2,7 @@ import screenshot from 'desktop-screenshot';
 import { promisify } from 'util';
 import tempy from 'tempy';
 import { QAction, QKeySequence } from '@nodegui/nodegui';
-import { ActionProps, ActionPropType } from '../../index';
+import { ActionProps, ActionPropType } from '../../../index';
 
 const screenshotAsync = promisify(screenshot);
 

@@ -1,6 +1,6 @@
 import { QAction, QApplication } from '@nodegui/nodegui';
 import appIcon from '../appIcon';
-import { ActionProps } from '../../index';
+import { ActionProps } from '../../../index';
 
 export default function quit(props?: ActionProps) {
   const action = new QAction();

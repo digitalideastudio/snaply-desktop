@@ -10,7 +10,7 @@ export interface S3Config {
   cfDomain: string,
 }
 
-export default class S3Client {
+class S3Client {
   private readonly s3: S3;
 
   private readonly bucketName: string;
@@ -51,3 +51,10 @@ export default class S3Client {
     });
   };
 }
+
+export default new S3Client({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
+  bucketName: process.env.AWS_BUCKET_NAME || '',
+  cfDomain: process.env.CLOUDFRONT_DOMAIN || '',
+});

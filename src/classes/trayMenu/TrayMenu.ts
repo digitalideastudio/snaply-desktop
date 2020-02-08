@@ -4,7 +4,7 @@ import captureArea from './actions/captureArea';
 import captureFullscreen from './actions/captureFullscreen';
 import recordVideo from './actions/recordVideo';
 import quit from './actions/quit';
-import { ActionProps } from '../index';
+import { ActionProps } from '../../index';
 
 const tray = new QSystemTrayIcon();
 tray.setIcon(appIcon);

@@ -1,5 +1,5 @@
 import { QAction, QKeySequence } from '@nodegui/nodegui';
-import { ActionProps } from '../../index';
+import { ActionProps } from '../../../index';
 
 export default function recordVideo(props?: ActionProps) {
   const action = new QAction();
