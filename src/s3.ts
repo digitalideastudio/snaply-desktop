@@ -2,14 +2,12 @@ import AWS from 'aws-sdk';
 import S3, { PutObjectRequest } from 'aws-sdk/clients/s3';
 import fs from 'fs';
 import path from 'path';
-import { ManagedUpload } from 'aws-sdk/lib/s3/managed_upload';
-import SendData = ManagedUpload.SendData;
 
 export interface S3Config {
-  accessKeyId?: string,
-  secretAccessKey?: string,
-  bucketName?: string,
-  cfDomain?: string,
+  accessKeyId: string,
+  secretAccessKey: string,
+  bucketName: string,
+  cfDomain: string,
 }
 
 export default class S3Client {
@@ -17,7 +15,7 @@ export default class S3Client {
 
   private readonly bucketName: string;
 
-  private cfDomain: string;
+  private readonly cfDomain: string;
 
   constructor({ accessKeyId, secretAccessKey, bucketName, cfDomain }: S3Config) {
     this.s3 = new AWS.S3({
@@ -40,14 +38,14 @@ export default class S3Client {
       Bucket: this.bucketName || '',
       Key: fileName,
       Body: fileContent,
+      ContentType: 'image/png',
     };
 
     return new Promise((resolve, reject) => {
       // Uploading files to the bucket
-      this.s3.upload(params, (err: Error, data: SendData) => {
+      this.s3.upload(params, (err: Error) => {
         if (err) return reject(err);
 
-        console.log(`File uploaded successfully. ${data.Location}`);
         return resolve(`https://${this.cfDomain}/${fileName}`);
       });
     });

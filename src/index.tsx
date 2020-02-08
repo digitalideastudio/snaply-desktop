@@ -13,9 +13,10 @@ process.title = 'Snaply';
 dotenv.config();
 
 const S3 = new S3Client({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  bucketName: process.env.AWS_BUCKET_NAME,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
+  bucketName: process.env.AWS_BUCKET_NAME || '',
+  cfDomain: process.env.CLOUDFRONT_DOMAIN || '',
 });
 
 Dock.hide();
@@ -69,6 +70,7 @@ const App = () => {
         if (!imageSrc) return;
 
         const fileUrl = await S3.uploadFile(imageSrc);
+
         winRef.current?.hide();
         await open(fileUrl);
         Dock.hide();
