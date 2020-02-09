@@ -1,7 +1,4 @@
 import { QIcon } from '@nodegui/nodegui';
-import path from 'path';
+import icon from './icon';
 
-const icon = 'icon.png';
-const appIcon = new QIcon(path.resolve(__dirname, icon));
-
-export default appIcon;
+export default new QIcon(icon);

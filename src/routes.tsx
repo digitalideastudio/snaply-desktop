@@ -1,7 +1,7 @@
 import { Route } from 'react-router';
 import React from 'react';
-import Home from './pages/Home';
-import About from './pages/About';
+import Editor from './pages/Editor';
+import Login from './pages/Login';
 
 export default function AppRoutes() {
   return (
@@ -9,11 +9,11 @@ export default function AppRoutes() {
       <Route
         exact
         path="/"
-        component={Home}
+        component={Editor}
       />
       <Route
-        path="/about"
-        component={About}
+        path="/login"
+        component={Login}
       />
     </>
   );

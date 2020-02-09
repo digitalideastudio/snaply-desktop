@@ -1,4 +1,4 @@
-import { Window, hot } from '@nodegui/react-nodegui';
+import { Window, hot, View } from '@nodegui/react-nodegui';
 import React from 'react';
 import { MemoryRouter } from 'react-router';
 import AppRoutes from './routes';
@@ -14,11 +14,21 @@ class App extends React.Component {
           windowTitle="Snaply"
           minSize={minSize}
         >
-          <AppRoutes />
+          <View
+            style={`
+              background: #1D1D1D;
+            `}
+          >
+            <AppRoutes />
+          </View>
         </Window>
       </MemoryRouter>
     );
   }
 }
+
+const containerStyle = `
+  flex: 1;
+`;
 
 export default hot(App);

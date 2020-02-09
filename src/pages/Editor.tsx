@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { View, Button, useEventHandler, Image } from '@nodegui/react-nodegui';
 import { useHistory } from 'react-router';
-import { AspectRatioMode, QMainWindow } from '@nodegui/nodegui';
+import { AspectRatioMode, QMainWindow, QPushButtonSignals } from '@nodegui/nodegui';
 import settings from '../classes/settings';
 import open from 'open';
 import { Dock } from '@nodegui/nodegui-os-utils';
@@ -29,7 +29,7 @@ export default function Editor() {
     [imageSrc],
   );
 
-  const loginButtonHandler = useEventHandler(
+  const loginButtonHandler = useEventHandler<QPushButtonSignals>(
     { clicked: () => history.push('/login') },
     [],
   );
@@ -89,7 +89,6 @@ const styleSheet = `
   #container {
     flex: 1;
     min-height: '100%';
-    background: #1D1D1D;
     color: #BBBBBB;
   }
 

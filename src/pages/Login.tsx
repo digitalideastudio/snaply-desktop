@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text, View, Button, useEventHandler, LineEdit } from '@nodegui/react-nodegui';
 import { useHistory } from 'react-router';
+import { QPushButtonSignals } from '@nodegui/nodegui';
 
 export default function Login() {
   const history = useHistory();
 
-  const handler = useEventHandler(
+  const handler = useEventHandler<QPushButtonSignals>(
     { clicked: () => history.goBack() },
     [],
   );
@@ -31,6 +32,7 @@ export default function Login() {
           <View id="actionRow">
             <Button
               id="login"
+              on={handler}
               text="Login"
             />
           </View>
