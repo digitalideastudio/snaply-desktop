@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router';
 import AppRoutes from './routes';
 //import appIcon from './classes/trayMenu/appIcon';
 
-const minSize = { width: 1280, height: 800 };
+const minSize = { width: 1280, height: 840 };
 
 class App extends React.Component {
   render() {

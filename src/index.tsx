@@ -3,6 +3,7 @@ import React from 'react';
 import { Renderer } from '@nodegui/react-nodegui';
 //import { Dock } from '@nodegui/nodegui-os-utils';
 import App from './app';
+import { QApplication } from '@nodegui/nodegui';
 //import './classes/settings';
 //import './classes/s3Client';
 //import settings from './classes/settings';
