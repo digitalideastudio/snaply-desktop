@@ -17,7 +17,7 @@
     "@nodegui/nodegui": "^0.13.3",
     "@nodegui/nodegui-os-utils": "^1.0.0",
     "@nodegui/react-nodegui": "^0.4.0",
-    "aws-sdk": "^2.614.0",
+    "aws-sdk": "^2.814.0",
     "desktop-screenshot": "^0.1.1",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
